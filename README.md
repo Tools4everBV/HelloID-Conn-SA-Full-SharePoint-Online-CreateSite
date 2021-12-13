@@ -5,7 +5,13 @@ This HelloID Service Automation Delegated Form provides SharePoint Online functi
  2. Select an available template
  3. Set the owner of the site
  4. Confirm the changes
- 
+
+## Versioning
+| Version | Description | Date |
+| - | - | - |
+| 1.0.1   | Added version number and updated all-in-one script | 2021/12/13  |
+| 1.0.0   | Initial release | 2020/12/05  |
+
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 * [Description](#description)
@@ -54,5 +60,8 @@ This Powershell data source gets all available SharePoint site templates.
 ### Delegated form task '[task]_SharePoint-create-site'
 This delegated form task will create a new SharePoint site.
 
-# HelloID Docs
+## Getting help
+_If you need help, feel free to ask questions on our [forum](https://forum.helloid.com/forum/helloid-connectors/service-automation/178-helloid-sa-sharepoint-online-create-site)_
+
+## HelloID Docs
 The official HelloID documentation can be found at: https://docs.helloid.com/
