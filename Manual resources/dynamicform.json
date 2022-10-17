@@ -3,11 +3,21 @@
         "label":  "Details",
         "fields":  [
                        {
-                           "key":  "title",
                            "templateOptions":  {
-                                                   "label":  "Title",
-                                                   "required":  true,
-                                                   "placeholder":  "Geef een title voor de site"
+
+                                               },
+                           "type":  "markdown",
+                           "summaryVisibility":  "Hide element",
+                           "body":  "**This form actually makes an Office365 group!**\n",
+                           "requiresTemplateOptions":  false,
+                           "requiresKey":  false,
+                           "requiresDataSource":  false
+                       },
+                       {
+                           "key":  "DisplayName",
+                           "templateOptions":  {
+                                                   "label":  "Displayname",
+                                                   "required":  true
                                                },
                            "type":  "input",
                            "summaryVisibility":  "Show",
@@ -16,48 +26,49 @@
                            "requiresDataSource":  false
                        },
                        {
-                           "key":  "selectedTemplate",
+                           "key":  "Description",
                            "templateOptions":  {
-                                                   "label":  "Template",
-                                                   "required":  true,
-                                                   "useObjects":  false,
-                                                   "useDataSource":  true,
-                                                   "useFilter":  true,
-                                                   "options":  [
-                                                                   "Option 1",
-                                                                   "Option 2",
-                                                                   "Option 3"
-                                                               ],
-                                                   "valueField":  "value",
-                                                   "textField":  "name",
-                                                   "dataSourceConfig":  {
-                                                                            "dataSourceGuid":  "$dataSourceGuid_0",
-                                                                            "input":  {
-                                                                                          "propertyInputs":  [
-
-                                                                                                             ]
-                                                                                      }
-                                                                        },
-                                                   "useDefault":  true,
-                                                   "defaultSelectorProperty":  "value"
+                                                   "label":  "Description"
                                                },
-                           "type":  "dropdown",
+                           "type":  "input",
                            "summaryVisibility":  "Show",
-                           "textOrLabel":  "text",
                            "requiresTemplateOptions":  true,
                            "requiresKey":  true,
                            "requiresDataSource":  false
                        },
                        {
-                           "key":  "selectedOwner",
+                           "key":  "visibility",
+                           "templateOptions":  {
+                                                   "label":  "Security",
+                                                   "useObjects":  false,
+                                                   "options":  [
+                                                                   "Public",
+                                                                   "Private"
+                                                               ],
+                                                   "required":  true
+                                               },
+                           "type":  "radio",
+                           "defaultValue":  "Public",
+                           "summaryVisibility":  "Show",
+                           "textOrLabel":  "label",
+                           "requiresTemplateOptions":  true,
+                           "requiresKey":  true,
+                           "requiresDataSource":  false
+                       },
+                       {
+                           "key":  "owner",
                            "templateOptions":  {
                                                    "label":  "Select owner",
-                                                   "required":  true,
+                                                   "required":  false,
                                                    "grid":  {
                                                                 "columns":  [
                                                                                 {
-                                                                                    "headerName":  "Name",
-                                                                                    "field":  "Name"
+                                                                                    "headerName":  "Id",
+                                                                                    "field":  "Id"
+                                                                                },
+                                                                                {
+                                                                                    "headerName":  "Display Name",
+                                                                                    "field":  "DisplayName"
                                                                                 },
                                                                                 {
                                                                                     "headerName":  "User",
@@ -68,7 +79,7 @@
                                                                 "rowSelection":  "single"
                                                             },
                                                    "dataSourceConfig":  {
-                                                                            "dataSourceGuid":  "$dataSourceGuid_1",
+                                                                            "dataSourceGuid":  "$dataSourceGuid_0",
                                                                             "input":  {
                                                                                           "propertyInputs":  [
 
@@ -90,40 +101,53 @@
         "label":  "Naming",
         "fields":  [
                        {
-                           "key":  "naming",
+                           "key":  "generatedNames",
                            "templateOptions":  {
                                                    "label":  "Naming",
                                                    "required":  true,
                                                    "grid":  {
                                                                 "columns":  [
                                                                                 {
-                                                                                    "headerName":  "Site Display Name",
-                                                                                    "field":  "SiteDisplayName"
+                                                                                    "headerName":  "Display Name",
+                                                                                    "field":  "displayName"
                                                                                 },
                                                                                 {
-                                                                                    "headerName":  "Site Name",
-                                                                                    "field":  "SiteName"
+                                                                                    "headerName":  "Description",
+                                                                                    "field":  "description"
+                                                                                },
+                                                                                {
+                                                                                    "headerName":  "Mail Nickname",
+                                                                                    "field":  "mailNickname"
+                                                                                },
+                                                                                {
+                                                                                    "headerName":  "Mail",
+                                                                                    "field":  "mail"
                                                                                 }
                                                                             ],
                                                                 "height":  300,
                                                                 "rowSelection":  "single"
                                                             },
                                                    "dataSourceConfig":  {
-                                                                            "dataSourceGuid":  "$dataSourceGuid_2",
+                                                                            "dataSourceGuid":  "$dataSourceGuid_1",
                                                                             "input":  {
                                                                                           "propertyInputs":  [
                                                                                                                  {
-                                                                                                                     "propertyName":  "inputTitle",
+                                                                                                                     "propertyName":  "displayname",
                                                                                                                      "otherFieldValue":  {
-                                                                                                                                             "otherFieldKey":  "title"
+                                                                                                                                             "otherFieldKey":  "DisplayName"
+                                                                                                                                         }
+                                                                                                                 },
+                                                                                                                 {
+                                                                                                                     "propertyName":  "description",
+                                                                                                                     "otherFieldValue":  {
+                                                                                                                                             "otherFieldKey":  "Description"
                                                                                                                                          }
                                                                                                                  }
                                                                                                              ]
                                                                                       }
                                                                         },
                                                    "useFilter":  true,
-                                                   "useDefault":  true,
-                                                   "defaultSelectorProperty":  "SiteName"
+                                                   "useDefault":  false
                                                },
                            "type":  "grid",
                            "summaryVisibility":  "Show",

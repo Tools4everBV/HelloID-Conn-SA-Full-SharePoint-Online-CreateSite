@@ -3,8 +3,16 @@
         "description":  null,
         "translateDescription":  false,
         "inputFieldType":  1,
-        "key":  "inputTitle",
+        "key":  "displayname",
         "type":  0,
         "options":  1
+    },
+    {
+        "description":  null,
+        "translateDescription":  false,
+        "inputFieldType":  1,
+        "key":  "description",
+        "type":  0,
+        "options":  0
     }
 ]

@@ -16,7 +16,7 @@ try {
  
         $Response = Invoke-RestMethod -Method POST -Uri $authUri -Body $body -ContentType 'application/x-www-form-urlencoded'
         $accessToken = $Response.access_token;
-        Write-Information $accessToken
+        
         #Add the authorization header to the request
         $authorization = @{
             Authorization = "Bearer $accesstoken";
@@ -35,10 +35,13 @@ try {
             "Department",
             "JobTitle",
             "Mail",
-            "MailNickName"            
+            "MailNickName",
+            "Id",
+            "assignedLicenses",
+            "assignedPlans"
         )
  
-        $usersUri = "https://graph.microsoft.com/v1.0/users"        
+        $usersUri = "https://graph.microsoft.com/v1.0/users"                
         $usersUri = $usersUri + ('?$select=' + ($propertiesToSelect -join "," | Out-String))
         
         $data = @()
@@ -50,16 +53,18 @@ try {
             $data += $query.value 
         }
         
-        $users = $data #| Sort-Object -Property DisplayName
+        $users = $data | Sort-Object -Property Name
         $resultCount = @($users).Count
         Write-Information "Result count: $resultCount"        
           
         if($resultCount -gt 0){
-            foreach($user in $users){  
-                if($user.UserPrincipalName -ne $SharePointAdminUser)    
-                {          
-                    $returnObject = @{User=$user.UserPrincipalName; Name=$user.displayName}
-                    Write-Output $returnObject                
+            foreach($user in $users){   
+                if($user.assignedLicenses.count -gt 0) {
+                    if($user.UserPrincipalName -ne $SharePointAdminUser)
+                    {                        
+                        $returnObject = @{Id=$user.id; User=$user.UserPrincipalName; DisplayName=$user.displayName }
+                        Write-Output $returnObject
+                    }
                 }
             }
         } else {
@@ -68,7 +73,7 @@ try {
     }
  catch {
     $errorDetailsMessage = ($_.ErrorDetails.Message | ConvertFrom-Json).error.message
-    Write-Error ("Error searching for AzureAD users. Error: $($_.Exception.Message)" + $errorDetailsMessage)
+    Write-Error ("Error searching for AzureAD groups. Error: $($_.Exception.Message)" + $errorDetailsMessage)
      
     return
 }

@@ -1,10 +1,18 @@
 [
     {
-        "key":  "SiteName",
+        "key":  "mail",
         "type":  0
     },
     {
-        "key":  "SiteDisplayName",
+        "key":  "description",
+        "type":  0
+    },
+    {
+        "key":  "mailNickname",
+        "type":  0
+    },
+    {
+        "key":  "displayName",
         "type":  0
     }
 ]

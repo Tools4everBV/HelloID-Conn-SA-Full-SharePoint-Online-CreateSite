@@ -1,10 +1,14 @@
 [
     {
+        "key":  "Id",
+        "type":  0
+    },
+    {
         "key":  "User",
         "type":  0
     },
     {
-        "key":  "Name",
+        "key":  "DisplayName",
         "type":  0
     }
 ]
