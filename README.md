@@ -1,10 +1,9 @@
 <!-- Description -->
 ## Description
 This HelloID Service Automation Delegated Form provides SharePoint Online functionality. The following options are available:
- 1. Enter a title for the new site
- 2. Select an available template
- 3. Set the owner of the site
- 4. Confirm the changes
+ 1. Enter a title for the new site 
+ 2. Set the owner of the site
+ 3. Confirm the changes
 
 ## Versioning
 | Version | Description | Date |
