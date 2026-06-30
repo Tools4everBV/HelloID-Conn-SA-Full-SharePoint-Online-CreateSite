@@ -1,18 +1,18 @@
 [
     {
-        "key":  "mail",
-        "type":  0
-    },
-    {
         "key":  "description",
         "type":  0
     },
     {
-        "key":  "mailNickname",
+        "key":  "displayName",
         "type":  0
     },
     {
-        "key":  "displayName",
+        "key":  "mail",
+        "type":  0
+    },
+    {
+        "key":  "mailNickname",
         "type":  0
     }
 ]
