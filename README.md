@@ -1,12 +1,10 @@
 # HelloID-Conn-SA-Full-SharePoint-Online-CreateSite
 
-| :information_source: Information                                                                                                                                                                                                                                                                                                                                                          |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| This repository contains the connector and configuration code only. The implementer is responsible for acquiring the connection details such as username, password, certificate, etc. You might even need to sign a contract or agreement with the supplier before implementing this connector. Please contact the client's application manager to coordinate the connector requirements. |
+> [!IMPORTANT]
+> This repository contains the connector and configuration code only. The implementer is responsible for acquiring the connection details such as username, password, certificate, etc. You might even need to sign a contract or agreement with the supplier before implementing this connector. Please contact the client's application manager to coordinate the connector requirements.
 
-| :information_source: Warning                                                                                                                                                                                                                                                                                                                                                          |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| This form actually makes an Office365 group! |
+> [!WARNING]
+> This form actually makes an Office365 group!
 
 ## Description
 
@@ -71,9 +69,8 @@ The following Microsoft Graph API endpoints are used by the connector:
 
 ## Getting help
 
-| :bulb: Tip                                                                                                                                               |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| For more information on Delegated Forms, please refer to our [documentation](https://docs.helloid.com/en/service-automation/delegated-forms.html) pages. |
+> [!TIP]
+> For more information on Delegated Forms, please refer to our [documentation](https://docs.helloid.com/en/service-automation/delegated-forms.html) pages.
 
 ## HelloID docs
 
