@@ -196,6 +196,26 @@ function Get-ADSanitizeGroupName {
 #endregion functions
 
 try {
+    # Convert base64 certificate string to certificate object
+    $actionMessage = "converting base64 certificate string to certificate object"
+    $certificate = Get-MSEntraCertificate -CertificateBase64String $EntraIdCertificateBase64String -CertificatePassword $EntraIdCertificatePassword
+    Write-Verbose "Converted base64 certificate string to certificate object"
+
+    # Create access token
+    $actionMessage = "creating access token"
+    $entraToken = Get-MSEntraAccessToken -Certificate $certificate -AppId $EntraIdAppId -TenantId $EntraIdTenantId
+    Write-Verbose "Created access token"
+
+    # Create headers
+    $actionMessage = "creating headers"
+    $headers = @{
+        "Authorization"    = "Bearer $($entraToken)"
+        "Accept"           = "application/json"
+        "Content-Type"     = "application/json"
+        "ConsistencyLevel" = "eventual" # Needed to filter on specific attributes (https://docs.microsoft.com/en-us/graph/aad-advanced-queries)
+    }
+    Write-Verbose "Created headers"
+
     $iterationMax = 10
     $iterationStart = 1;
 
@@ -214,26 +234,6 @@ try {
         
         $mailaddress = $tempName.Replace(" ", "") + "@" + $Mailsuffix 
         $mailNickname = $tempName.Replace(" ", "")
-
-        # Convert base64 certificate string to certificate object
-        $actionMessage = "converting base64 certificate string to certificate object"
-        $certificate = Get-MSEntraCertificate -CertificateBase64String $EntraIdCertificateBase64String -CertificatePassword $EntraIdCertificatePassword
-        Write-Verbose "Converted base64 certificate string to certificate object"
-
-        # Create access token
-        $actionMessage = "creating access token"
-        $entraToken = Get-MSEntraAccessToken -Certificate $certificate -AppId $EntraIdAppId -TenantId $EntraIdTenantId
-        Write-Verbose "Created access token"
-
-        # Create headers
-        $actionMessage = "creating headers"
-        $headers = @{
-            "Authorization"    = "Bearer $($entraToken)"
-            "Accept"           = "application/json"
-            "Content-Type"     = "application/json"
-            "ConsistencyLevel" = "eventual" # Needed to filter on specific attributes (https://docs.microsoft.com/en-us/graph/aad-advanced-queries)
-        }
-        Write-Verbose "Created headers"
 
         $actionMessage = "searching for groups"
         

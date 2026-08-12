@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com),
 and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [2.1.0] - 2026-08-12
+
+### Fixed
+
+- TLS setting updated to only add TLS 1.2 (removed deprecated TLS 1.0/1.1)
+- Moved token/certificate/headers creation outside for-loop in check-unique-names datasource
+
+### Changed
+
+- Corrected EntraId variable naming in All-in-one script
+
 ## [2.0.0] - 2026-06-30
 
 ### Added
