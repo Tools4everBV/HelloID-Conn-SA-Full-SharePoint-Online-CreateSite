@@ -4,11 +4,14 @@
         "fields":  [
                        {
                            "templateOptions":  {
-
+                                                   "title":  "**This form actually makes an Office365 group!**",
+                                                   "titleField":  "",
+                                                   "bannerType":  "Warning",
+                                                   "useBody":  false
                                                },
-                           "type":  "markdown",
-                           "summaryVisibility":  "Hide element",
-                           "body":  "**This form actually makes an Office365 group!**\n",
+                           "type":  "textbanner",
+                           "summaryVisibility":  "Show",
+                           "body":  "Text Banner Content",
                            "requiresTemplateOptions":  false,
                            "requiresKey":  false,
                            "requiresDataSource":  false
@@ -64,15 +67,15 @@
                                                                 "columns":  [
                                                                                 {
                                                                                     "headerName":  "Id",
-                                                                                    "field":  "Id"
+                                                                                    "field":  "id"
+                                                                                },
+                                                                                {
+                                                                                    "headerName":  "User Principal Name",
+                                                                                    "field":  "userPrincipalName"
                                                                                 },
                                                                                 {
                                                                                     "headerName":  "Display Name",
-                                                                                    "field":  "DisplayName"
-                                                                                },
-                                                                                {
-                                                                                    "headerName":  "User",
-                                                                                    "field":  "User"
+                                                                                    "field":  "displayName"
                                                                                 }
                                                                             ],
                                                                 "height":  300,
@@ -87,7 +90,8 @@
                                                                                       }
                                                                         },
                                                    "useFilter":  true,
-                                                   "useDefault":  false
+                                                   "useDefault":  false,
+                                                   "allowCsvDownload":  true
                                                },
                            "type":  "grid",
                            "summaryVisibility":  "Show",
@@ -147,7 +151,8 @@
                                                                                       }
                                                                         },
                                                    "useFilter":  true,
-                                                   "useDefault":  false
+                                                   "useDefault":  false,
+                                                   "allowCsvDownload":  true
                                                },
                            "type":  "grid",
                            "summaryVisibility":  "Show",
